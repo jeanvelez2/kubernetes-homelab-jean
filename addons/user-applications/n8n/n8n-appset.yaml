@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-n8n
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_n8n: 'true'
+  template:
+    metadata:
+      name: addon-{{name}}-n8n
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/jmroche/homelab.git'
+        targetRevision: HEAD
+        path: environments/default/addons/n8n
+      destination:
+        namespace: n8n
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

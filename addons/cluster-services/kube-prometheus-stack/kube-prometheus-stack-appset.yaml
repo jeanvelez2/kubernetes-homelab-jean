@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-kube-prometheus-stack
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_kube_prometheus_stack: 'true'
+        values:
+          addonChart: kube-prometheus-stack
+          addonChartVersion: 78.3.2 # Using a recent stable version
+          addonChartRepository: https://prometheus-community.github.io/helm-charts
+  template:
+    metadata:
+      name: addon-{{name}}-{{values.addonChart}}
+    spec:
+      project: default
+      sources:
+        - repoURL: 'https://github.com/jmroche/homelab.git'
+          targetRevision: HEAD
+          ref: values
+        - chart: '{{values.addonChart}}'
+          repoURL: '{{values.addonChartRepository}}'
+          targetRevision: '{{values.addonChartVersion}}'
+          helm:
+            releaseName: '{{values.addonChart}}'
+            valueFiles:
+              - $values/environments/default/addons/{{values.addonChart}}/values.yaml
+      destination:
+        namespace: monitoring
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true

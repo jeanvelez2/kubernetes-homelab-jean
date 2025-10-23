@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-pgadmin
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_pgadmin: 'true'
+  template:
+    metadata:
+      name: addon-{{name}}-pgadmin
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/jmroche/homelab.git'
+        targetRevision: HEAD
+        path: environments/default/addons/pgadmin
+      destination:
+        namespace: pgadmin
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

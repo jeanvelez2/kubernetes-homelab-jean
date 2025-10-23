@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-pihole
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_pihole: 'true'
+        values:
+          addonChart: pihole
+          addonChartVersion: 2.34.0
+          addonChartRepository: https://mojo2600.github.io/pihole-kubernetes/
+  template:
+    metadata:
+      name: addon-{{name}}-{{values.addonChart}}
+    spec:
+      project: default
+      sources:
+        - repoURL: 'https://github.com/jmroche/homelab.git'
+          targetRevision: HEAD
+          ref: values
+        - chart: '{{values.addonChart}}'
+          repoURL: '{{values.addonChartRepository}}'
+          targetRevision: '{{values.addonChartVersion}}'
+          helm:
+            releaseName: '{{values.addonChart}}'
+            valueFiles:
+              - $values/environments/default/addons/{{values.addonChart}}/values.yaml
+      destination:
+        namespace: pihole
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

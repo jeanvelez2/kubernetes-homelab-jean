@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: root-appset-of-appsets
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/jmroche/homelab.git
+        revision: HEAD
+        directories:
+          - path: "addons/cluster-services/*"
+          - path: "addons/user-applications/*"
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/jmroche/homelab.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd

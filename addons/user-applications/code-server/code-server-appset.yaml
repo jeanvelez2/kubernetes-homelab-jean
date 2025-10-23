@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-code-server
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_code-server: 'true'
+  template:
+    metadata:
+      name: addon-{{name}}-code-server
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/jmroche/homelab.git'
+        targetRevision: HEAD
+        path: environments/default/addons/code-server
+      destination:
+        namespace: code-server
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

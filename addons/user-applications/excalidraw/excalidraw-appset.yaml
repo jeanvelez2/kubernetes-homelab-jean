@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons-excalidraw
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            enable_excalidraw: 'true'
+  template:
+    metadata:
+      name: addon-{{name}}-excalidraw
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/jmroche/homelab.git'
+        targetRevision: HEAD
+        path: environments/default/addons/excalidraw
+      destination:
+        namespace: excalidraw
+        name: '{{name}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
