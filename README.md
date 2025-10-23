@@ -21,6 +21,9 @@ This homelab includes the following applications:
 -   **Homepage:** A customizable homepage for your homelab services.
 -   **n8n:** A workflow automation tool.
 -   **pgAdmin:** A web-based administration tool for PostgreSQL.
+  
+### View of the Homepage.dev dashboard
+![alt text](images/homepage.png)
 
 ## Configuration
 
