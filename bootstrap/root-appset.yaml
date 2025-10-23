@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/jmroche/homelab.git
+        repoURL: https://github.com/Cloud-Native-Puerto-Rico/kubernetes-homelab.git
         revision: HEAD
         directories:
           - path: "addons/cluster-services/*"
@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/jmroche/homelab.git
+        repoURL: https://github.com/Cloud-Native-Puerto-Rico/kubernetes-homelab.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
