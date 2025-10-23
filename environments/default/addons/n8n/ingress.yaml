@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: n8n.home.devopsinthe.cloud
+  - host: Change Me
     http:
       paths:
       - path: /

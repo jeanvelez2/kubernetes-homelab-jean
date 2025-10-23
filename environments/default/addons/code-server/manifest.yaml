@@ -65,7 +65,7 @@ spec:
               mountPath: /home/coder/project
           env:
             - name: PASSWORD
-              value: "codinglife"
+              value: "Change Me"
       volumes:
         - name: code-server-data
           persistentVolumeClaim:
@@ -97,7 +97,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "code.home.devopsinthe.cloud"
+  - host: "Change Me"
     http:
       paths:
       - path: /

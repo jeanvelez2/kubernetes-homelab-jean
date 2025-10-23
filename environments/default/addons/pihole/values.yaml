@@ -55,7 +55,7 @@ dnsmasq:
   additionalHostsEntries: []
   customCnameEntries: []
   customDnsEntries:
-  - address=/.home.devopsinthe.cloud/192.168.68.100
+  - address=/.FQDN/ipv4-address # Change Me
   enableCustomDnsMasq: true
   staticDhcpEntries: []
   upstreamServers: []
@@ -117,7 +117,7 @@ ingress:
   annotations: {}
   enabled: true
   hosts:
-  - pihole.home.devopsinthe.cloud
+  - Change Me (FQDN)
   path: /
   pathType: ImplementationSpecific
   tls: []
@@ -196,7 +196,7 @@ serviceDns:
   externalTrafficPolicy: Local
   extraLabels: {}
   loadBalancerClass: ""
-  loadBalancerIP: 192.168.68.100
+  loadBalancerIP: Change Me (IPV4 Address)
   loadBalancerIPv6: ""
   mixedService: true
   nodePort: ""
@@ -221,7 +221,7 @@ serviceWeb:
 strategyType: RollingUpdate
 tolerations: []
 topologySpreadConstraints: []
-virtualHost: pihole.home.devopsinthe.cloud
+virtualHost: Change Me (FQDN)
 webHttp: "80"
 webHttps: "443"
 whitelist: {}

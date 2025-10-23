@@ -507,7 +507,7 @@ grafana:
     annotations: {}
     enabled: true
     hosts:
-    - grafana.home.devopsinthe.cloud
+    - Change Me
     labels: {}
     path: /
     tls: []

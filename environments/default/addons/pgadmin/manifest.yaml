@@ -90,7 +90,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "pgadmin.home.devopsinthe.cloud"
+  - host: "Change Me"
     http:
       paths:
       - path: /

@@ -59,7 +59,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "excalidraw.home.devopsinthe.cloud"
+  - host: "Change Me"
     http:
       paths:
       - path: /

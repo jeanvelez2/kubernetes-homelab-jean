@@ -70,37 +70,37 @@ data:
   services.yaml: |
     - Homelab:
         - Grafana:
-            href: http://grafana.home.devopsinthe.cloud
+            href: http://Change Me
             description: Monitoring and Analytics
             icon: grafana
         - Pi-hole:
-            href: http://pihole.home.devopsinthe.cloud/admin/
+            href: http://Change Me/admin/
             description: Network-wide Ad Blocking
             icon: pi-hole
             # widget:
             #   type: pihole
-            #   url: http://pihole.home.devopsinthe.cloud/api
+            #   url: http://Change Me/api
             #   version: 6
             #   key: "{{HOMEPAGE_VAR_PIHOLE_KEY}}"
         - ArgoCD:
-            href: http://argocd.home.devopsinthe.cloud
+            href: http://Change Me
             description: GitOps Continuous Delivery
             icon: argo-cd
         - pgAdmin:
-            href: http://pgadmin.home.devopsinthe.cloud
+            href: http://Change Me
             description: PostgreSQL Administration
             icon: pgadmin
     - Creating:
         - Excalidraw:
-            href: http://excalidraw.home.devopsinthe.cloud
+            href: http://Change Me
             description: Virtual Whiteboard
             icon: excalidraw
         - n8n:
-            href: http://n8n.home.devopsinthe.cloud
+            href: http://Change Me
             description: Workflow Automation
             icon: n8n
         - Code Server:
-            href: http://code.home.devopsinthe.cloud
+            href: http://Change Me
             description: VS Code in the browser
             icon: code-server
 
@@ -176,9 +176,9 @@ spec:
           image: "ghcr.io/gethomepage/homepage:latest"
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: homepage.home.devopsinthe.cloud
+              value: Change Me
             - name: HOMEPAGE_VAR_PIHOLE_KEY
-              value: "yCPA41QyHQumzMe7brK5kLwYCqQfA9sOqymChEa9/po="
+              value: "Change Me"
           ports:
             - name: http
               containerPort: 3000
@@ -222,7 +222,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "homepage.home.devopsinthe.cloud"
+  - host: "Change Me"
     http:
       paths:
       - path: /
