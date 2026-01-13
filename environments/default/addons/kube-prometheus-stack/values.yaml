@@ -507,7 +507,7 @@ grafana:
     annotations: {}
     enabled: true
     hosts:
-    - Change Me
+    - grafana.homelab.local
     labels: {}
     path: /
     tls: []

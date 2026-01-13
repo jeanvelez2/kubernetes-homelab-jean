@@ -55,7 +55,7 @@ dnsmasq:
   additionalHostsEntries: []
   customCnameEntries: []
   customDnsEntries:
-  - address=/.FQDN/ipv4-address # Change Me
+  - address=/.homelab.local/192.168.1.113 # Local DNS
   enableCustomDnsMasq: true
   staticDhcpEntries: []
   upstreamServers: []
@@ -117,7 +117,7 @@ ingress:
   annotations: {}
   enabled: true
   hosts:
-  - Change Me (FQDN)
+  - pihole.homelab.local
   path: /
   pathType: ImplementationSpecific
   tls: []
@@ -196,7 +196,7 @@ serviceDns:
   externalTrafficPolicy: Local
   extraLabels: {}
   loadBalancerClass: ""
-  loadBalancerIP: Change Me (IPV4 Address)
+  loadBalancerIP: 192.168.1.113
   loadBalancerIPv6: ""
   mixedService: true
   nodePort: ""
@@ -221,7 +221,7 @@ serviceWeb:
 strategyType: RollingUpdate
 tolerations: []
 topologySpreadConstraints: []
-virtualHost: Change Me (FQDN)
+virtualHost: pihole.homelab.local
 webHttp: "80"
 webHttps: "443"
 whitelist: {}

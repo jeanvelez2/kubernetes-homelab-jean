@@ -70,37 +70,37 @@ data:
   services.yaml: |
     - Homelab:
         - Grafana:
-            href: http://Change Me
+            href: http://grafana.homelab.local
             description: Monitoring and Analytics
             icon: grafana
         - Pi-hole:
-            href: http://Change Me/admin/
+            href: http://pihole.homelab.local/admin/
             description: Network-wide Ad Blocking
             icon: pi-hole
             # widget:
             #   type: pihole
-            #   url: http://Change Me/api
+            #   url: http://pihole.homelab.local/api
             #   version: 6
             #   key: "{{HOMEPAGE_VAR_PIHOLE_KEY}}"
         - ArgoCD:
-            href: http://Change Me
+            href: http://argocd.homelab.local
             description: GitOps Continuous Delivery
             icon: argo-cd
         - pgAdmin:
-            href: http://Change Me
+            href: http://pgadmin.homelab.local
             description: PostgreSQL Administration
             icon: pgadmin
     - Creating:
         - Excalidraw:
-            href: http://Change Me
+            href: http://excalidraw.homelab.local
             description: Virtual Whiteboard
             icon: excalidraw
         - n8n:
-            href: http://Change Me
+            href: http://n8n.homelab.local
             description: Workflow Automation
             icon: n8n
         - Code Server:
-            href: http://Change Me
+            href: http://code.homelab.local
             description: VS Code in the browser
             icon: code-server
 
@@ -176,9 +176,9 @@ spec:
           image: "ghcr.io/gethomepage/homepage:latest"
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: Change Me
+              value: homepage.homelab.local
             - name: HOMEPAGE_VAR_PIHOLE_KEY
-              value: "Change Me"
+              value: "get-from-pihole-admin"
           ports:
             - name: http
               containerPort: 3000
@@ -222,7 +222,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "Change Me"
+  - host: "homepage.homelab.local"
     http:
       paths:
       - path: /
