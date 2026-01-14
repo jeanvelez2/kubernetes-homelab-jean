@@ -14,7 +14,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/Cloud-Native-Puerto-Rico/kubernetes-homelab.git'
+        repoURL: 'https://github.com/jeanvelez2/kubernetes-homelab-jean.git'
         targetRevision: HEAD
         path: environments/default/addons/n8n
       destination:
