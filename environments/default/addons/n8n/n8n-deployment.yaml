@@ -17,13 +17,8 @@ spec:
       labels:
         service: n8n
     spec:
-      initContainers:
-        - name: volume-permissions
-          image: busybox:1.36
-          command: ["sh", "-c", "chown 1000:1000 /data"]
-          volumeMounts:
-            - name: n8n-claim0
-              mountPath: /data
+      securityContext:
+        fsGroup: 1000
       containers:
         - command:
             - /bin/sh
