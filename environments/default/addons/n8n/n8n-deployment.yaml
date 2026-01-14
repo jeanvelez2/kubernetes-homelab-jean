@@ -17,8 +17,6 @@ spec:
       labels:
         service: n8n
     spec:
-      imagePullSecrets:
-        - name: regcred
       securityContext:
         fsGroup: 1000
       containers:

@@ -20,8 +20,6 @@ spec:
       labels:
         service: postgres-n8n
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
         - image: postgres:11
           name: postgres
